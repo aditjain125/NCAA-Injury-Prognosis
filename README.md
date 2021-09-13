@@ -1,2 +1,2 @@
-# Human-Subject-Classification
-Exploring NCAA runner's IMU data to classify between subjects using Artificial Intelligence framework. Part of my research efforts at the Human Performance Lab at UC Davis
+# Injury Prognosis in NCAA Runners Using Wearable Accelerometer Data: Project Overview
+Exploring wearable accelerometer data from NCAA runners to prognose musculokskeletal overuse injury. Part of my research efforts at the [Human Performance Lab](http://hpl.ucdavis.edu/) at University of California, Davis. 
