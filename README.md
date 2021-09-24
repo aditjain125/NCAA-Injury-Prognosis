@@ -8,8 +8,8 @@ Highlights:
 * Prototyped Long Short-Term Memory (LSTM) model which classified between accelerometer signals from healthy and injured periods with average accuracy of 97%. 
 
 # Code and Resources Used
-**Python Version:** 3.7
-**Packages:** pandas, numpy, scipy, scikit-learn, keras, matplotlib, tensorflow
+* **Python Version:** 3.7
+* **Packages:** pandas, numpy, scipy, scikit-learn, keras, matplotlib, tensorflow
 
 # Data Collection and Subject Profile
 * Data was collected from 10 NCAA runners at UC Davis using a wearable triaxial accelerometer mounted at the sacrum. 
