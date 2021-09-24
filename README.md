@@ -19,13 +19,9 @@ Highlights:
 **Important Note:** Subject 1 was permanently injured after the 29th training session. Thus, training session 29 is taken to be the subject's "injured" state, while training session 1 is the subject's "healthy" state. 
 
 # Data Cleaning and Preprocessing 
-The large magnitude and rawness of the dataset made preprocessing steps necessary. The first step I took was to plot the Fast Fourier Transform of the data to gauage signal quality. Below is a sample of a FFT plot from one of the 29 training sessions. 
+The large magnitude and rawness of the dataset made preprocessing steps necessary. The first step I took was to plot the Fast Fourier Transform of the data to gauage signal quality. 
 
-**Insert Old Plot here** 
-
-From the literature, we know that traditional running frequency is at 2-3Hz as well as some higher frequencies for the anterior-posterior and medial-lateral axes. Thus, I chose to filter out signal >10Hz as this was likely noise from electrical systems and the data collection environment. The resulting plot looked like this: 
-
-**Insert New Plot Here** 
+From the literature, we know that traditional running frequency is at 2-3Hz as well as some higher frequencies for the anterior-posterior and medial-lateral axes. Thus, I chose to filter out signal >10Hz as this was likely noise from electrical systems and the data collection environment. 
 
 It is important to note that the nature of this model type makes it possible to be conservative with the cutoff frequency. As outlined in following steps, we will not explicitly be using the signal peaks or features to engineer features for classification. Therefore, it serves us well to keep as much of the signal as possible while eliminating as much noise as possible. 
 
@@ -35,4 +31,16 @@ Lastly, here are some additional processing steps that were taken:
 * Stacked all segmented data into a 3D data matrix. i.e., the triaxial data from both the "healthy" and "injured" training sessions were converged into one data matrix.
 
 # Model Construction
-A Long Short-Term Memory (LSTM) model type was utilized. LSTM models excel in Natural Language Processing, and thus, have the capability to 
+A Long Short-Term Memory (LSTM) model type was utilized. LSTM models excel in Natural Language Processing, and thus, have the capability to observe patterns in sequential data such as from time-series accelerometer data. 
+
+Here are the steps taken in the construction of this model: 
+* Split the 3D data matrix into training and test data using an 80-20 split. 
+* One-hot encode numerical class labels to make them suitable for model construction 
+* Adam optimization algorithim and a categorical loss entropy function was used due to the multiclass nature of the data. 
+* 15 training epochs to allow for adequate learning and minimization of loss. 
+
+# Model Evaluation 
+
+From 10 iterations of model construction, the LSTM model was able to classify between healthy and injured running periods with **97.1% accuracy**. Additionally, there was a **Recall score of 0.93** and **Precision of 0.98**. 
+
+The model certainly offers promising results to be able to prognose a musculoskeletal injury in a runner using raw acclerometer signals, with little need for feature engineering and preprocessing. 
